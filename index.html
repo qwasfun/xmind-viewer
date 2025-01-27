@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xmind-viewer</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #app {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script src="https://unpkg.com/xmind-embed-viewer@1.2.0/dist/umd/xmind-embed-viewer.js"></script>
+    <div id="app"></div>
+    <script>
+      const viewer = new XMindEmbedViewer({
+        el: '#app', // HTMLElement | HTMLIFrameElement | string
+        // 如果在中国大陆境内速度慢，可以添加的参数 `region: 'cn'` 改为使用 xmind.cn 的图库作为依赖。
+        region: 'cn', //optinal, global(default) or cn
+        styles: {
+          height: '100%',
+          width: '100%'
+        }
+      })
+      // 获取url参数
+      const params = new URLSearchParams(window.location.search)
+      const url = params.get('url')
+      if (!url) {
+        console.error('未提供xmind文件url参数')
+        // return;
+      } else {
+        fetch(url)
+          .then(res => res.arrayBuffer())
+          .then(file => viewer.load(file))
+      }
+    </script>
+  </body>
+</html>
