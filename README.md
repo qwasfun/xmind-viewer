@@ -7,9 +7,9 @@ http://qwasfun.github.io/xmind-viewer/view.html?src=xmind文件地址
 ```
 
 ```text
-http://qwasfun.github.io/xmind-viewer/view.html?src=https//xmindltd.github.io/xmind-embed-viewer/test-1.xmind
+http://qwasfun.github.io/xmind-viewer/view.html?src=https://xmindltd.github.io/xmind-embed-viewer/test-1.xmind
 ```
 
-相关项目
+依赖项目
 
 https://github.com/xmindltd/xmind-embed-viewer/
